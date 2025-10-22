@@ -1,6 +1,8 @@
 import random, time
 import tabulate
 
+
+
 def ssort(L):
     ### selection sort
     if (len(L) == 1):
@@ -20,7 +22,7 @@ def qsort(a, pivot_fn):
         left = [x for x in a if x < p]
         middle = [x for x in a if x == p]
         right = [x for x in a if x > p]
-        return qsort(left, pivot_fn) + middle + qsort(right, pivot_fn)
+        return (qsort(left, pivot_fn) + middle + qsort(right, pivot_fn))
 
     
 def time_search(sort_fn, mylist):
@@ -46,7 +48,7 @@ def time_search(sort_fn, mylist):
     return (time.time() - start) * 1000
     ###
 
-def compare_sort(sizes=[100, 200, 500, 1000, 2000, 5000, 10000, 20000, 50000, 100000]):
+def compare_sort(sizes=[100, 200, 500,]):
     """
     Compare the running time of different sorting algorithms.
 
@@ -67,12 +69,12 @@ def compare_sort(sizes=[100, 200, 500, 1000, 2000, 5000, 10000, 20000, 50000, 10
         mylist = list(range(size))
         # shuffles list if needed
         #random.shuffle(mylist)
-        result.append([
+        result_random.append([
             len(mylist),
             time_search(qsort_fixed_pivot, mylist),
             time_search(qsort_random_pivot, mylist),
         ])
-    return result
+    return result_random
     ###
 
 def print_results(results):
