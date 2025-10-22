@@ -3,6 +3,8 @@ from main import *
 import pytest
 import random
 
+pytest.register_assert_rewrite = lambda *args, **kwargs: None
+
 def test_ssort():
     L = [5, 3, 2, 4, 1]
     assert ssort(L) == [1, 2, 3, 4, 5]
